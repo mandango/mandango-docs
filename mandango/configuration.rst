@@ -13,8 +13,8 @@ and includes the ClassLoader component of Symfony2::
 
     $loader = new UniversalClassLoader();
     $loader->registerNamespaces(array(
+        'Mandango\Mondator' => '/path/to/mondator/src',
         'Mandango' => '/path/to/mandango/src',
-        'Mondator' => '/path/to/mondator/src',
         'Model'    => dirname('/path/to/Model'),
     ));
     $loader->register();
