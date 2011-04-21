@@ -18,7 +18,7 @@ amount of information to store.
 .. note::
   If you want to know more about MongoDB, you can visit its web: `http://www.mongodb.org`_
 
-¿What is and ODM?
+¿What is an ODM?
 -----------------
 
 An ODM is a tool that maps the structure of the databases in objects

@@ -55,7 +55,6 @@ Add Mandango to your configuration:
         default_connection: local
         connections:
             local:
-                default: true
                 server:   mongodb://localhost:27017
                 database: symfony2_local_%kernel.environment%
 

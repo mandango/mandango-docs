@@ -83,7 +83,7 @@ A full example
 Let's see a full example, which you can use to start using Mandango::
 
     $mandangoDir = '/path/to/mandango';
-    $projectDir  = '/path/to/Model';
+    $modelDir  = '/path/to/Model';
 
     // classes loader
     require_once($mandangoDir.'/vendor/symfony/src/Symony/Component/ClassLoader/UniversalClassLoader.php');
