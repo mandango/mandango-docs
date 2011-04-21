@@ -67,13 +67,13 @@ setters and getters of the fields that have class configurations::
 
     class DocumentExtension extends Extension
     {
-        protected method setup()
+        protected function setup()
         {
             $this->addRequiredOption('output');
             $this->addOption('process_fields', true);
         }
 
-        protected method doProcess()
+        protected function doProcess()
         {
             // document
             $output = new Output($this->getOption('output'));

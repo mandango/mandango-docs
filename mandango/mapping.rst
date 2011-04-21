@@ -83,7 +83,7 @@ options. Mandango allows the option *default* to assign a value by default::
 
 .. note::
   Mongo allows a *free schema*, but for mapping documents with Mandango
-  you must specify the fields you'll use. You can define as fields as you want,
+  you must specify the fields you'll use. You can define as much fields as you want,
   Mandango has been designed to take advantage of the free schema of Mongo, so
   to define a lot of fields is not a performance problem.
 

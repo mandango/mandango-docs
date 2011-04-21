@@ -152,7 +152,7 @@ The properties are assigned also to the definitions::
     $definition->addProperty($property);
 
     // replace (deletes all that existed previously)
-    $defintion->setProperties(array($property1, $property2));
+    $definition->setProperties(array($property1, $property2));
 
     // return all
     $properties = $definition->getProperties();
