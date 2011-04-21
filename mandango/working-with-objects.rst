@@ -152,7 +152,7 @@ The relations can only be accessed, and they return a document or a
 *Mandango\Query* object depending on the type::
 
     // one
-    $phonenumber = $author->getPhonenumbers(); // document
+    $phonenumber = $author->getPhonenumber(); // document
 
     // one_many
     $articles = $authors->getArticles(); // Mandango\Query
@@ -168,7 +168,7 @@ Save and delete
 ---------------
 
 To save and delete Mandango documents you can use the methods
-*_->save()_* y *_->delete()_* of the documents::
+*->save()* y *->delete()* of the documents::
 
     // save
     $article->save();
