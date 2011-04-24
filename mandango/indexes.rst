@@ -1,7 +1,7 @@
 Indexes
 =======
 
-You can map the indexes also in the config classes, and synchronize them
+You can map the indexes also in the config classes, and ensure them
 easily through the repositories.
 
 Mapping
@@ -26,7 +26,7 @@ Mapping
         ),
     );
 
-You can map indexes even in the embedded documents, the full mongo field name
+You can map indexes also in the embedded documents, the full mongo field name
 is built automatically::
 
     array(

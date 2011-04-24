@@ -9,7 +9,7 @@ Mandango carries by default with some extensions apart from the Core one.
 DocumentArrayAccess
 -------------------
 
-The *DocumentArrayAccess* extension adds the *\\ArrayAccess* interface to the
+The ``DocumentArrayAccess`` extension adds the ``\ArrayAccess`` interface to the
 documents.
 
 Adding the extension to mondator::
@@ -26,7 +26,7 @@ Using the extension::
 DocumentPropertyOverloading
 ---------------------------
 
-With the *DocumentPropertyOverloading* extension you will be able to work with your
+With the ``DocumentPropertyOverloading`` extension you will be able to work with your
 documents by **overload**.
 
 Adding the extension to mondator::

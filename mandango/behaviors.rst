@@ -53,7 +53,7 @@ By default
 ----------
 
 If you want to use any behavior by default in all document classes, you can
-define it in the Core extension::
+define it in the Core extension options::
 
     $extensions[] = new \Mandango\Extension\Core(array(
         // ...
@@ -65,7 +65,7 @@ define it in the Core extension::
         ),
     ));
 
-And if you want to use any of them only in the regular documents::
+And if you want to use any of them only in the main documents::
 
     $extensions[] = new \Mandango\Extension\Core(array(
         // ...

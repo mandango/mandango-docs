@@ -8,7 +8,7 @@ To do that you have to create a mandango type and add it to the mandango types' 
 Creating custom types
 ---------------------
 
-A mandango type is a class that inherits from *Mandango\Type\Type* and
+A mandango type is a class that inherits from ``Mandango\Type\Type`` and
 implements its four abstract methods.
 
 Let's see an example::
@@ -43,10 +43,10 @@ Let's see an example::
 .. hint::
   **Four abstract methods**:
 
-  * **toMongo**: convert a PHP value to Mongo
-  * **toPHP**: convert a Mongo value to PHP
-  * **toMongoInString**: convert a PHP value to Mongo in string (to generate the classes)
-  * **toPHPInString**: convert a Mongo value to PHP in string (to generate the classes)
+  * ``toMongo``: convert a PHP value to Mongo
+  * ``toPHP``: convert a Mongo value to PHP
+  * ``toMongoInString``: convert a PHP value to Mongo in string (to generate the classes)
+  * ``toPHPInString``: convert a Mongo value to PHP in string (to generate the classes)
 
 Mandango types' container
 -------------------------

@@ -2,12 +2,12 @@ Querying
 ========
 
 The queries are made in Mandango through the document query classes,
-which inherit from the *Mandango\Query* class, which is awesome.
+which inherit from the ``Mandango\Query`` class, which is awesome.
 
 The philosophy is simple: be as fast (lazy) and easy (human friendly) as
 possible, and the results have been incredible.
 
-The *Mandango\Query* class uses the mongo query syntax, so you don't have to learn
+The ``Mandango\Query`` class uses the mongo query syntax, so you don't have to learn
 a new language to start to use it, although you can of course add much more
 cool stuff on the top of it.
 
@@ -69,7 +69,7 @@ Merging criteria
 ----------------
 
 When we apply logic depending on parameters, sometimes we want just modify part
-of the criteria. You can use the *->mergeCriteria()* method for this::
+of the criteria. You can use the ``->mergeCriteria()`` method for this::
 
     $query->criteria(array('author' => $author->getId));
     if ($active) {
@@ -99,12 +99,25 @@ A query class is generated for each document class, so you can save logic on it:
         $query->active();
     }
 
+Making useful methods
+---------------------
+
+If you query the same criteria and options usually, you can refactor it in a
+query method::
+
+    public function oneBySlug($slug)
+    {
+        return $this->criteria(array('slug' => $slug))->one();
+    }
+
+    $article = \Model\Article::query()->oneBySlug($slug);
+
 References many
 ---------------
 
 Please, remember how :doc:`references many work </mandango/working-with-objects>`.
 
-The *Mandango\\ReferenceGroup* class has a *query* method that just returns a mandango
+The ``Mandango\\ReferenceGroup`` class has a ``query`` method that just returns a mandango
 query object to query the referenced documents. So, as the mandango query class
 is awesome, you can also make awesome stuff with it::
 

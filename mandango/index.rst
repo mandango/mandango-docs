@@ -7,10 +7,14 @@ Mandango
    introduction
    configuration
    mondator
-   mapping
+   basic-mapping
+   reference-mapping
+   embedded-mapping
+   relation-mapping
    working-with-objects
    repositories
    querying
+   unit-of-work
    indexes
    events
    grid-fs

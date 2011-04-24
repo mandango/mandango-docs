@@ -6,8 +6,8 @@ Mondator is an easy and flexible class generator for PHP.
 Philosophy
 ----------
 
-Mondator uses *config classes* and *extensions* to generate the
-classes. The config classes have the information about themselves,
+Mondator uses ``config classes`` and ``extensions`` to generate the
+classes. The config classes have the information about the classes,
 and the extensions process those data and indicate which classes have to be
 generated, where and how they must be.
 
@@ -25,7 +25,7 @@ you will see step by step what you will have to do to use it and you will
 understand how it works.
 
 Create a Mondator
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 ::
 
@@ -34,9 +34,9 @@ Create a Mondator
     $mondator = new Mondator();
 
 Assign the Config Classes
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The config classes contain the information of the classes.::
+The config classes contain the information of the classes::
 
     $mondator->setConfigClasses(array(
         'Model\Article' => array(
@@ -48,10 +48,10 @@ The config classes contain the information of the classes.::
     ));
 
 .. tip::
-  You can use a language like `YAML`_ to work easily with the config classes.
+  You can use a language like `YAML`_ to work with the config classes easily.
 
 Assign the extensions
-~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^
 
 The extensions are the ones ordered to process the config classes and
 generate class definitions and outputs. The definitions indicate which
@@ -72,10 +72,10 @@ The extensions also accept options to be able to customize its operation::
 
 .. note::
   Adding more extensions you will be able to customize the generated classes
-  as much as you want, or event generate more classes.
+  as much as you want, or even generate more classes.
 
-Process
-~~~~~~~
+Process the Mondator
+^^^^^^^^^^^^^^^^^^^^
 
 Once you have assigned the config classes and extensions, you only have to
 process the mondator to generate the files of each classes::
@@ -97,9 +97,9 @@ Let's see a full example, which you can use to start using Mandango::
 
     $loader = new UniversalClassLoader();
     $loader->registerNamespaces(array(
-        'Mandango' => $mandangoDir.'/src/',
-        'Mondator' => $mandangoDir.'/vendor/mondator/src',
-        'Model'    => dirname($modelDir),
+        'Mandango\Mondator' => $mandangoDir.'/vendor/mondator/src',
+        'Mandango'          => $mandangoDir.'/src/',
+        'Model'             => dirname($modelDir),
     ));
     $loader->register();
 
@@ -131,7 +131,7 @@ Let's see a full example, which you can use to start using Mandango::
     $mondator->process();
 
 If you take a look at the generated files, you will see that there are empty
-classes that you can customize, and others *Base* that **you must not touch**
+classes that you can customize, and others *Base* that **you must not modify**
 because they are **overwritten** every time the mondator is processed.
 
 .. note::

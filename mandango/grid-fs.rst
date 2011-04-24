@@ -15,7 +15,7 @@ For it you have to map them as files::
         ),
     );
 
-When doing it the field **file** is automatically added, that is the one
+When doing it the field ``file`` is automatically added, that is the one
 in which the file is saved::
 
     $image = new \Model\Image();
@@ -28,9 +28,6 @@ in which the file is saved::
 
     $image->save();
 
-.. warning::
-  The file **can't be updated**. The remaining mapped field can be updated.
-
 And to retrieve them it is done the same way::
 
     $image = \Model\Image::query()->one();
@@ -38,6 +35,9 @@ And to retrieve them it is done the same way::
     $image->getFile() // \MongoGridFSFile
 
     $bytes = $image->getFile()->getBytes();
+
+.. warning::
+  The file **can't be updated**. The remaining mapped field can be updated.
 
 .. _GridFS: http://www.mongodb.org/display/DOCS/GridFS
 .. _MongoGridFS: http://php.net/manual/en/class.mongogridfs.php

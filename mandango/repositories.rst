@@ -3,7 +3,7 @@ Repositories
 
 The repositories perform general functions of documents.
 
-They are obtained through the *repository* static method of the document class::
+They are obtained through the ``repository`` static method of the document class::
 
     $articleRepository = \Model\Article::repository();
     $authorRepository = \Model\Author::repository();
@@ -11,11 +11,32 @@ They are obtained through the *repository* static method of the document class::
 .. note::
   The embedded documents don't have repositories.
 
-Saving Documents
-------------------
+Finding
+-------
 
-To save documents you can also use the *->save()* method of the
-repositories, which is the one that the save method of the documents use
+The repositories implement the ``find`` method to find documents by id::
+
+    $article = \Model\Article::repository()->find($id);
+
+You can find several at once::
+
+    $article = \Model\Article::repository()->find(array($id1, $id2, $id3));
+
+And also to use a shortcut::
+
+    $article = \Model\Article::find($id);
+
+Mandango implements the IdentityMap_ pattern, so when you find a document
+and the document has been found already, the same document is returned.
+
+.. note::
+  You can use a ``\MongoId`` object or a string.
+
+Saving Documents
+----------------
+
+To save documents you can also use the ``->save()`` method of the
+repositories, which is the one that the save method of the documents uses
 internally::
 
     // saving a document
@@ -31,7 +52,7 @@ internally::
 
 .. tip::
   Inserting document through the repository directly is useful when you
-  have to insert more then one document. This way all the operation is done
+  have to insert more than one document. This way all the operation is done
   in the same batchInsert.
 
 Deleting Documents
@@ -50,7 +71,7 @@ The same logic that with the save method is applied here::
 
 .. note::
   It is also very useful **to delete a lot of documents** from the repository, because
-  it uses the $in_ operator.
+  it uses the ``$in`` operator.
 
 Connection
 ----------
@@ -64,13 +85,14 @@ Collection
 ----------
 
 You can also obtain the mongo collection to perform operations directly
-with the *->getConnection()* method::
+with the ``->getConnection()`` method::
 
     $collection = $articleRepository->getCollection();
 
     // shortcut
     $collection = \Model\Article::collection();
 
+.. _IdentityMap: http://martinfowler.com/eaaCatalog/identityMap.html
 .. _batchInsert: http://www.php.net/manual/en/mongocollection.batchinsert.php
 .. _atomic operations: http://www.mongodb.org/display/DOCS/Atomic+Operations
 .. _$in: http://www.mongodb.org/display/DOCS/Advanced+Queries#AdvancedQueries-%24in

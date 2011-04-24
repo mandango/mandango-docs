@@ -15,4 +15,5 @@ To do it you just have to pass a *PHP callable* to the mandango when you create 
 ..  note::
   This functionality doesn't have **any penalty in performance** in production,
   since when it's used it's done with Mongo collection objects
-  special for logging, but when it's not used instead it's used the native ones.
+  special for logging, but when it's not used (in production) it's used the
+  native ones instead.

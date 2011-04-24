@@ -15,15 +15,15 @@ Mandango uses setters and getters to modify and access to the document's data.
 Identifier
 ----------
 
-To access the identifier *_id* of the mongo documents it is used the
-*->getId()* method. It returns *null* if the document is new::
+To access the identifier ``_id`` of the mongo documents it is used the
+``->getId()`` method. It returns ``null`` if the document is new::
 
     $id = $article->getId();
 
 New check
 ---------
 
-To check if a document exists in the database you have to use the *->isNew()*
+To check if a document exists in the database you have to use the ``->isNew()``
 method::
 
     $isNew = $article->isNew();
@@ -66,7 +66,7 @@ If there is no a reference document it just returns *null*.
 Many
 ~~~~
 
-To work with references to many it is used a *Mandango\ReferenceGroup* object,
+To work with references to many it is used a ``Mandango\ReferenceGroup`` object,
 to store the referenced documents.
 
 Adding and deleting referenced documents::
@@ -91,7 +91,7 @@ Adding and deleting referenced documents::
     // replacing (delete the existent ones and add the new ones)
     $article->getCategories()->replace(array($category2, $category4, $category6));
 
-To work with the references to many the *ReferenceGroup* has some useful methods::
+To work with the references to many the ``ReferenceGroup`` has some useful methods::
 
     // retrieving the saved documents
     $saved = $categories->saved();
@@ -99,7 +99,7 @@ To work with the references to many the *ReferenceGroup* has some useful methods
     // count the saved documents
     $count = $categories->count();
 
-The *ReferenceGroup* class implements the *Countable* and *IteratorAggregate*
+The ``ReferenceGroup`` class implements the ``Countable`` and ``IteratorAggregate``
 interfaces, so you can use them as well::
 
     // saved
@@ -115,7 +115,7 @@ interfaces, so you can use them as well::
     $count = count($article->getCategories());
 
 .. note::
-  The *ReferenceGroup* has also an extremely useful *query* method that we will see
+  The ``ReferenceGroup`` has also an extremely useful *query* method that we will see
   later of see the queries.
 
 Embeddeds
@@ -135,8 +135,8 @@ One
 To many (many)
 ~~~~~~~~~~~~~~~
 
-To work with the embeddeds many is used the *EmbeddedGroup* class instead, but
-it works in the similar way that the *ReferenceGroup* one::
+To work with the embeddeds many is used the ``EmbeddedGroup`` class instead, but
+it works in the similar way that the ``ReferenceGroup`` one::
 
     $article->getComments()->add($comment1);
 
@@ -149,7 +149,7 @@ Relations
 ---------
 
 The relations can only be accessed, and they return a document or a
-*Mandango\Query* object depending on the type::
+``Mandango\Query`` object depending on the type::
 
     // one
     $phonenumber = $author->getPhonenumbers(); // document
@@ -168,7 +168,7 @@ Save and delete
 ---------------
 
 To save and delete Mandango documents you can use the methods
-*_->save()_* y *_->delete()_* of the documents::
+``->save()`` y ``->delete()`` of the documents::
 
     // save
     $article->save();

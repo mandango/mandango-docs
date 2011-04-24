@@ -12,8 +12,8 @@ performing certain actions:
   * **preDelete**: before deleting
   * **postDelete**: after deleting
 
-You just have to define in the config classes the document methods you want to
-execute and in what action::
+You just have to define the document methods you want to execute and in what
+action in the config classes::
 
     array(
         'Model\Article' => array(
@@ -45,6 +45,7 @@ And write the methods in the document class::
 .. note::
   The document methods have to be public.
 
-This feature does not have any performance deterioration if you don't use it,
+This feature does not have any penalty in performance if you don't use it,
 because the code to execute the methods is generated only if you indicate it
-explicitly.
+explicitly. And if you use it, the performance penalty just depends on the
+methods you use.
