@@ -19,12 +19,12 @@ The opposite reference is to one and unique, that is, one to one::
                 'name' => 'string',
             ),
             // one
-            'relations_one' => array(
+            'relationsOne' => array(
                 'phone_number' => array('class' => 'Model\PhoneNumber', 'reference' => 'author'),
             ),
         ),
         'Model\PhoneNumber' => array(
-            'references_one' => array(
+            'referencesOne' => array(
                 'author' => array('class' => 'Model\Author'),
             ),
         ),
@@ -41,7 +41,7 @@ The opposite reference is to one (but not unique), that is, many to one::
                 'name' => 'string',
             ),
             // many_one
-            'relations_many_one' => array(
+            'relationsManyOne' => array(
                 'articles' => array('class' => 'Model\Article', 'reference' => 'author'),
             ),
         ),
@@ -50,7 +50,7 @@ The opposite reference is to one (but not unique), that is, many to one::
                 'title'   => 'string',
                 'content' => 'string',
             ),
-            'references_one' => array(
+            'referencesOne' => array(
                 'author' => array('class' => 'Model\Author'),
             ),
         ),
@@ -67,7 +67,7 @@ The opposite reference is many, that is, many to many::
                 'name' => 'string',
             ),
             // many_many
-            'relations_many_many' => array(
+            'relationsManyMany' => array(
                 'articles' => array('class' => 'Model\Article', 'reference' => 'categories'),
             ),
         ),
@@ -76,7 +76,7 @@ The opposite reference is many, that is, many to many::
                 'title'   => 'string',
                 'content' => 'string',
             ),
-            'references_many' => array(
+            'referencesMany' => array(
                 'categories' => array('class' => 'Model\Category'),
             ),
         ),

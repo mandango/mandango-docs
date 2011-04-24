@@ -43,7 +43,7 @@ the options if they exist::
                 // with options
                 array(
                     'class' => 'Mandango\Behavior\Sluggable',
-                    'options' => array('field_from' => 'title'),
+                    'options' => array('fieldFrom' => 'title'),
                 ),
             ),
         ),
@@ -60,7 +60,7 @@ define it in the Core extension options::
         'default_behaviors' => array(
             array(
                 'class' => 'Mandango\Behavior\Timestampable',
-                'options' => array('updated_enabled' => false),
+                'options' => array('updatedEnabled' => false),
             )),
         ),
     ));
@@ -73,7 +73,7 @@ And if you want to use any of them only in the main documents::
             array(
                 'in_embeddeds' => false,
                 'class' => 'Mandango\Behavior\Timestampable',
-                'options' => array('updated_enabled' => false),
+                'options' => array('updatedEnabled' => false),
             )),
         ),
     ));
@@ -102,10 +102,10 @@ Let's see the Timestampable behabior::
         protected function setUp()
         {
             $this->addOptions(array(
-                'created_enabled' => true,
-                'created_field'   => 'created_at',
-                'updated_enabled' => true,
-                'updated_field'   => 'updated_at',
+                'createdEnabled' => true,
+                'createdField'   => 'created_at',
+                'updatedEnabled' => true,
+                'updatedField'   => 'updated_at',
             ));
         }
 
@@ -115,14 +115,14 @@ Let's see the Timestampable behabior::
         protected function doConfigClassProcess()
         {
             // created
-            if ($this->getOption('created_enabled')) {
-                $this->configClass['fields'][$this->getOption('created_field')] = 'date';
+            if ($this->getOption('createdEnabled')) {
+                $this->configClass['fields'][$this->getOption('createdField')] = 'date';
                 $this->configClass['events']['preInsert'][] = 'updateTimestampableCreated';
             }
 
             // updated
-            if ($this->getOption('updated_enabled')) {
-                $this->configClass['fields'][$this->getOption('updated_field')] = 'date';
+            if ($this->getOption('updatedEnabled')) {
+                $this->configClass['fields'][$this->getOption('updatedField')] = 'date';
                 $this->configClass['events']['preUpdate'][] = 'updateTimestampableUpdated';
             }
         }
@@ -133,8 +133,8 @@ Let's see the Timestampable behabior::
         protected function doClassProcess()
         {
             // created
-            if ($this->getOption('created_enabled')) {
-                $fieldSetter = 'set'.Inflector::camelize($this->getOption('created_field'));
+            if ($this->getOption('createdEnabled')) {
+                $fieldSetter = 'set'.Inflector::camelize($this->getOption('createdField'));
 
                 $method = new Method('protected', 'updateTimestampableCreated', '', <<<EOF
             \$this->$fieldSetter(new \DateTime());
@@ -144,8 +144,8 @@ Let's see the Timestampable behabior::
             }
 
             // updated
-            if ($this->getOption('updated_enabled')) {
-                $fieldSetter = 'set'.Inflector::camelize($this->getOption('updated_field'));
+            if ($this->getOption('updatedEnabled')) {
+                $fieldSetter = 'set'.Inflector::camelize($this->getOption('updatedField'));
 
                 $method = new Method('protected', 'updateTimestampableUpdated', '', <<<EOF
             \$this->$fieldSetter(new \DateTime());

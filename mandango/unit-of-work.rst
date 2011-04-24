@@ -14,7 +14,7 @@ Let's see an example::
     $category2 = \Model\Category::create()->setName('PHP');
     $mandango->persist(array($category1, $category2));
 
-    $article = \Model\Article::query(array('name' => 'Mondongo'))->one();
+    $article = \Model\Article::getRepository()->createQuery(array('name' => 'Mondongo'))->one();
     $article
         ->setName('Mandango')
         ->setAuthor($author)
@@ -22,7 +22,7 @@ Let's see an example::
     ;
     $mandango->persist($article);
 
-    $articles = \Model\Article::query(array('type' => 'slow'))->all();
+    $articles = \Model\Article::getRepository()->createQuery(array('type' => 'slow'))->all();
     $mandango->remove($articles);
 
     // send all database operations at once

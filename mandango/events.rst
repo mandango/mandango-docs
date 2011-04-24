@@ -27,9 +27,9 @@ action in the config classes::
 
 And write the methods in the document class::
 
-    namespace Model\Document;
+    namespace Model\;
 
-    class Article extends \Model\Document\Base\Article
+    class Article extends \Model\Base\Article
     {
         public function updateCreatedAtBeforeInsert()
         {

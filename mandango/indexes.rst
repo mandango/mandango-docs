@@ -31,7 +31,7 @@ is built automatically::
 
     array(
         'Model\Comment' => array(
-            'is_embedded' => true,
+            'isEmbedded' => true,
             'fields' => array(
                 'name' => 'string',
                 'text' => 'string',
@@ -43,7 +43,7 @@ is built automatically::
         ),
         'Model\Article' => array(
             // ...
-            'embeddeds_many' => array(
+            'embeddedsMany' => array(
                 'comments' => array('class' => 'Model\Comment'),
                 // index: comments.date
             ),
@@ -58,8 +58,8 @@ Synchronizing
 
 ::
 
-    \Model\Article::repository()->ensureIndexes();
-    \Model\Author::repository()->ensureIndexes();
+    \Model\Article::getRepository()->ensureIndexes();
+    \Model\Author::getRepository()->ensureIndexes();
 
 All at once through the mandango::
 

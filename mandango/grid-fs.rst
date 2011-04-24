@@ -8,7 +8,7 @@ For it you have to map them as files::
 
     array(
         'Model\Image' => array(
-            'is_file' => true,
+            'isFile' => true,
             'fields' => array(
                 'name' => 'string',
             ),
@@ -30,7 +30,7 @@ in which the file is saved::
 
 And to retrieve them it is done the same way::
 
-    $image = \Model\Image::query()->one();
+    $image = \Model\Image::getRepository()->createQuery()->one();
 
     $image->getFile() // \MongoGridFSFile
 

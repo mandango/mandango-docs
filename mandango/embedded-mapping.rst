@@ -8,7 +8,7 @@ you are going to embedd.
 
 The embedded documents are mapped in the same way as regular documents, so you
 just have to indicate that it's an embedded document activating the option
-``is_embedded``.
+``isEmbedded``.
 
 There are two types of embeddeds, depending on the number of documents that
 they are going to embed.
@@ -20,7 +20,7 @@ Embeddeds One
 
     array(
         'Model\Source' => array(
-            'is_embedded' => true,
+            'isEmbedded' => true,
             'fields' => array(
                 'name' => 'string',
                 'url'  => 'string',
@@ -28,7 +28,7 @@ Embeddeds One
         ),
         'Model\Article' => array(
             // one
-            'embeddeds_one' => array(
+            'embeddedsOne' => array(
                 'source'   => array('class' => 'Model\Source'),
             ),
         ),
@@ -41,7 +41,7 @@ Embeddeds Many
 
     array(
         'Model\Comment' => array(
-            'is_embedded' => true,
+            'isEmbedded' => true,
             'fields' => array(
                 'name' => 'string',
                 'text' => 'string',
@@ -49,11 +49,11 @@ Embeddeds Many
         ),
         'Model\Article' => array(
             // many
-            'embeddeds_many' => array(
+            'embeddedsMany' => array(
                 'comments' => array('class' => 'Model\Comment'),
             ),
         ),
     );
 
 .. tip::
-  Mandango can work with multiple embedded documents, that is, embed inside the embeddeds.
+  Mandango can work with deep embedded documents, that is, embed inside the embeddeds.

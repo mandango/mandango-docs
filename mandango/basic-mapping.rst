@@ -102,7 +102,7 @@ can use a different field name in PHP and Mongo::
     array(
         'Model\Article' => array(
             'fields' => array(
-                'php_field_name' => array('type' => 'string', 'db_field' => 'mongo_field_name'),
+                'php_field_name' => array('type' => 'string', 'db_name' => 'mongo_field_name'),
             ),
         ),
     );

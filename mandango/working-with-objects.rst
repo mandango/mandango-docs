@@ -57,7 +57,7 @@ And to access the referenced objects is in the same way but with the getter::
 
     $author = $article->getAuthor();
 
-If there is no a reference document it just returns *null*.
+If there is no a reference document it just returns ``null``.
 
 .. note::
   The referenced document is queried automatically to the database if it has
@@ -81,6 +81,10 @@ Adding and deleting referenced documents::
     // adding several at the same time
     $categories->add(array($category1, $category2));
 
+    // shortcut to add from the document
+    $article->addCategories($category); // one
+    $article->addCategories($categories); // several
+
     // remove one by one
     $categories()->remove($category1);
     $categories()->remove($category2);
@@ -88,15 +92,19 @@ Adding and deleting referenced documents::
     // removing several at the same time
     $categories->remove(array($category1, $category2));
 
+    // shortcut to remove from the document
+    $article->removeCategories($category); // one
+    $article->removeCategories($categories); // several
+
     // replacing (delete the existent ones and add the new ones)
     $article->getCategories()->replace(array($category2, $category4, $category6));
 
 To work with the references to many the ``ReferenceGroup`` has some useful methods::
 
-    // retrieving the saved documents
-    $saved = $categories->saved();
+    // retrieving all documents (saved + add - removed)
+    $categories = $categories->all();
 
-    // count the saved documents
+    // count the documents
     $count = $categories->count();
 
 The ``ReferenceGroup`` class implements the ``Countable`` and ``IteratorAggregate``
@@ -115,7 +123,7 @@ interfaces, so you can use them as well::
     $count = count($article->getCategories());
 
 .. note::
-  The ``ReferenceGroup`` has also an extremely useful *query* method that we will see
+  The ``ReferenceGroup`` has also an extremely useful *createQuery* method that we will see
   later of see the queries.
 
 Embeddeds
@@ -138,9 +146,9 @@ To many (many)
 To work with the embeddeds many is used the ``EmbeddedGroup`` class instead, but
 it works in the similar way that the ``ReferenceGroup`` one::
 
-    $article->getComments()->add($comment1);
+    $article->addComments($comment1);
 
-    $article->getComments()->remove($comment1);
+    $article->removeComments($comment1);
 
     // ...
 

@@ -78,7 +78,7 @@ Process the Mondator
 ^^^^^^^^^^^^^^^^^^^^
 
 Once you have assigned the config classes and extensions, you only have to
-process the mondator to generate the files of each classes::
+process the mondator to generate the files of the classes::
 
     $mondator->process();
 
