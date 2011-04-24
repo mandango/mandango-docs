@@ -152,7 +152,7 @@ The relations can only be accessed, and they return a document or a
 ``Mandango\Query`` object depending on the type::
 
     // one
-    $phonenumber = $author->getPhonenumbers(); // document
+    $phonenumber = $author->getPhonenumber(); // document
 
     // one_many
     $articles = $authors->getArticles(); // Mandango\Query

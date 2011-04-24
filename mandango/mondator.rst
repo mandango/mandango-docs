@@ -88,7 +88,7 @@ A full example
 Let's see a full example, which you can use to start using Mandango::
 
     $mandangoDir = '/path/to/mandango';
-    $projectDir  = '/path/to/Model';
+    $modelDir  = '/path/to/Model';
 
     // classes loader
     require_once($mandangoDir.'/vendor/symfony/src/Symony/Component/ClassLoader/UniversalClassLoader.php');
@@ -122,7 +122,7 @@ Let's see a full example, which you can use to start using Mandango::
     $mondator->setExtensions(array(
         new Mandango\Extension\Core(array(
             'metadata_class' => 'Model\Mapping\Metadata',
-            'metadta_output' => $modelDir.'/Mapping',
+            'metadata_output' => $modelDir.'/Mapping',
             'default_output' => $modelDir,
         )),
     ));
