@@ -24,10 +24,10 @@ Configuration
 .. hint::
   **Options**:
 
-  * **created_enabled**: if saving or not the creation date (enabled by default)
-  * **created_field**: field used to store the creation date (*created_at* by default)
-  * **updated_enabled**: if saving or not the update date (enabled by default)
-  * **updated_field**: field used to store the update date (*updated_at* by default)
+  * **createdEnabled**: if saving or not the creation date (enabled by default)
+  * **createdField**: field used to store the creation date (*created_at* by default)
+  * **updatedEnabled**: if saving or not the update date (enabled by default)
+  * **updatedField**: field used to store the update date (*updated_at* by default)
 
 Usage
 -----

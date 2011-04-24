@@ -24,11 +24,11 @@ Configuration
 .. hint::
   **Options**:
 
-  * **created_enabled**: if saving or not the IP from where documents are created (enabled by default)
-  * **created_field**: field used to store the IP from where documents are created (*created_from* by default)
-  * **updated_enabled**: if saving or not the IP from where documents are updated (enabled by default)
-  * **updated_field**: field used to store the IP from where documents are updated (*updated_from* by default)
-  * **get_ip_callable**: callable that returns the IP to save (*Mandango\Behavior\Util\IpableUtil::getIp()* by default)
+  * **createdEnabled**: if saving or not the IP from where documents are created (enabled by default)
+  * **createdField**: field used to store the IP from where documents are created (*created_from* by default)
+  * **updatedEnabled**: if saving or not the IP from where documents are updated (enabled by default)
+  * **updatedField**: field used to store the IP from where documents are updated (*updated_from* by default)
+  * **getIpCallable**: callable that returns the IP to save (*Mandango\Behavior\Util\IpableUtil::getIp()* by default)
 
 Usage
 -----

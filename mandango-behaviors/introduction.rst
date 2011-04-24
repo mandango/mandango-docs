@@ -35,7 +35,9 @@ Configuration
 
 To use these behaviors you just have to add their namespace to the class loader::
 
-    $loader = new \Symfony\Comopnent\HttpFoundation\UniversalClassLoader();
+    use Symfony\Component\ClassLoader\UniversalClassLoader;
+
+    $loader = new UniversalClassLoader();
     $loader->registerNamespaces(array(
         'Mandango\Behavior' => '/path/to/mandango-behaviors/src',
         'Mandango'          => '/path/to/mandango/src',
