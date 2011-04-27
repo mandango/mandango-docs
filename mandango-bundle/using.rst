@@ -16,6 +16,6 @@ functionality in the documents that require it::
     $article->save();
 
     // quering
-    $articles = \Model\Article::query();
+    $articles = \Model\Article::getRepository()->createQuery();
 
     // ...

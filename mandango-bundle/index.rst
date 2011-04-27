@@ -7,3 +7,8 @@ MandangoBundle
    introduction
    generate-classes
    using
+   validation
+   forms
+   profiler
+   ensuring-indexes
+   security
