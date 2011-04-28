@@ -27,6 +27,8 @@ Let's see how it works::
         ->hint(array('date' => 1))
         ->snapshot(true)
         ->timeout(100)
+
+        ->references() // Mandango's extra
     ;
 
     // the real query is only executed in these cases
@@ -38,6 +40,35 @@ Let's see how it works::
     // counting results (directly, without hydrate)
     $nb = $query->count();
     $nb = count($query); // Countable interface
+
+References
+----------
+
+MongoDB does not have joins, but Mandango has the best and most efficient way
+to solve this feature. Usually when you access to a reference, the reference is
+queried, so if you have to access to several references, you have to make
+several queries. What does Mandango do? Simply to group the references queries
+in only one query::
+
+    // queries articles
+    $articles = \Model\Article::getRepository()->createQuery()
+        ->all()
+    ;
+    foreach ($articles as $article) {
+        // query each author, so the number of queries depends on the different authors
+        $article->getAuthor();
+    }
+
+    // queries articles and their authors
+    // only two queries, no matter how many authors there are
+    // authors queried with array('_id' => '$in' => $authorIds)
+    $articles = \Model\Article::getRepository()->createQuery()
+        ->references('author')
+        ->all()
+    ;
+    foreach ($articles as $article) {
+        $article->getAuthor(); // queried!
+    }
 
 Applying logic
 --------------

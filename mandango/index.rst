@@ -22,3 +22,4 @@ Mandango
    extensions
    behaviors
    custom-types
+   query-cache
