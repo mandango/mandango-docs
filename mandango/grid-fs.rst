@@ -18,7 +18,7 @@ For it you have to map them as files::
 When doing it the field ``file`` is automatically added, that is the one
 in which the file is saved::
 
-    $image = new \Model\Image();
+    $image = $mandango->create('Model\Image');
 
     // as file
     $image->setFile('/path/to/file');
@@ -30,7 +30,7 @@ in which the file is saved::
 
 And to retrieve them it is done the same way::
 
-    $image = \Model\Image::getRepository()->createQuery()->one();
+    $image = $imageRepository->createQuery()->one();
 
     $image->getFile() // \MongoGridFSFile
 

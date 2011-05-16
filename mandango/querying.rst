@@ -13,8 +13,8 @@ cool stuff on the top of it.
 
 Let's see how it works::
 
-    $query = \Model\Article::getRepository()->createCuery(); // Model\ArticleQuery
-    $query = \Model\Article::getRepository()->createQuery($criteria);
+    $query = $articleRepository->createQuery(); // Model\ArticleQuery
+    $query = $articleRepository->createQuery($criteria);
 
     // methods (fluent interface)
     $query
@@ -51,7 +51,7 @@ several queries. What does Mandango do? Simply to group the references queries
 in only one query::
 
     // queries articles
-    $articles = \Model\Article::getRepository()->createQuery()
+    $articles = $articleRepository->createQuery()
         ->all()
     ;
     foreach ($articles as $article) {
@@ -62,7 +62,7 @@ in only one query::
     // queries articles and their authors
     // only two queries, no matter how many authors there are
     // authors queried with array('_id' => '$in' => $authorIds)
-    $articles = \Model\Article::getRepository()->createQuery()
+    $articles = $articleRepository->createQuery()
         ->references('author')
         ->all()
     ;
@@ -77,7 +77,7 @@ Like you have seen, the queries only execute the real database's queries when
 you iterate or when you do it explicitly. That means that you can play with the
 queries before they really query something::
 
-    $query = \Model\Article::getRepository::createQuery();
+    $query = $articleRepository->createQuery();
 
     if ($criteria) {
         $query->criteria($criteria);
@@ -159,4 +159,4 @@ Collection
 You can also use the mongo collection directly to do the customized operations
 you need::
 
-    $collection = \Model\Article::getRepository()->getCollection();
+    $collection = $articleRepository->getCollection();

@@ -3,10 +3,10 @@ Repositories
 
 The repositories perform general functions of documents.
 
-They are obtained through the ``getRepository`` static method of the document class::
+They are obtained through the ``getRepository`` method of the mandango::
 
-    $articleRepository = \Model\Article::getRepository();
-    $authorRepository = \Model\Author::getRepository();
+    $articleRepository = $mandango->getRepository('Model\Article');
+    $authorRepository = $mandango->getRepository('Model\Author');
 
 .. note::
   The embedded documents don't have repositories.
@@ -18,10 +18,10 @@ The repositories implement the ``findById`` and ``findOneById`` methods to find
 documents by id::
 
     // one
-    $article = \Model\Article::getRepository()->findOneById($id);
+    $article = $articleRepository->findOneById($id);
 
     // several
-    $articles = \Model\Article::getRepository()->findById(array($id1, $id2, $id3));
+    $articles = $articleRepository->findById(array($id1, $id2, $id3));
 
 Mandango implements the IdentityMap_ pattern, so when you find a document
 and the document has been found already, the same document is returned.
@@ -37,10 +37,10 @@ repositories, which is the one that the save method of the documents uses
 internally::
 
     // saving a document
-    \Model\Article::getRepository()->save($article);
+    $articleRepository->save($article);
 
     // saving several documents
-    \Model\Article::getRepository()->save(array($article1, $article2));
+   $articleRepository->save(array($article1, $article2));
 
 .. note::
   To insert documents it is used the batchInsert_ method,
@@ -58,10 +58,10 @@ Deleting Documents
 The same logic that with the save method is applied here::
 
     // deleting a document
-    \Model\Article::getRepository()->delete($article);
+    $articleRepository->delete($article);
 
     // deleting several documents
-    \Model\Article::getRepository()->delete(array($article1, $article2));
+    $articleRepository->delete(array($article1, $article2));
 
 .. note::
   It is also very useful **to delete a lot of documents** from the repository, because
@@ -73,7 +73,7 @@ Connection
 You can get the mandango connection of the documents from the repository
 through the ``->getConnection()`` method::
 
-    $connection = \Model\Article::getRepository()->getConnection();
+    $connection = $articleRepository->getConnection();
 
 Collection
 ----------

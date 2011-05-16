@@ -11,11 +11,11 @@ The mandango is initialized also automatically (in a lazy way) if you use some
 functionality in the documents that require it::
 
     // creating
-    $article = new \Model\Article();
+    $article = $mandango->create('Model\Article');
     $article->setTitle($title);
     $article->save();
 
     // quering
-    $articles = \Model\Article::getRepository()->createQuery();
+    $articles = $mandango->getRepository('Model\Article')->createQuery();
 
     // ...

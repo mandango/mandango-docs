@@ -34,7 +34,7 @@ Usage
 
 ::
 
-    $article = \Model\Article::create()->setTitle('Mandango')->save();
+    $article = $mandango->create('Model\Article')->setTitle('Mandango')->save();
 
     echo $article->getCreatedAt(); // new \DateTime('now')
     echo $article->getUpdatedAt(); // null

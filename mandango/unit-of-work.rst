@@ -7,14 +7,14 @@ Mandango implements the `Unit Of Work`_ pattern, which simply means
 Let's see an example::
 
     // prepare database operations
-    $author = \Model\Author::create()->setName('pablodip');
+    $author = $mandango->create('Model\Author')->setName('pablodip');
     $mandango->persist($author);
 
-    $category1 = \Model\Category::create()->setName('MongoDB');
-    $category2 = \Model\Category::create()->setName('PHP');
+    $category1 = $mandango->create('Model\Category')->setName('MongoDB');
+    $category2 = $mandango->create('Model\Category')->setName('PHP');
     $mandango->persist(array($category1, $category2));
 
-    $article = \Model\Article::getRepository()->createQuery(array('name' => 'Mondongo'))->one();
+    $article = $articleRepository->createQuery(array('name' => 'Mondongo'))->one();
     $article
         ->setName('Mandango')
         ->setAuthor($author)
@@ -22,7 +22,7 @@ Let's see an example::
     ;
     $mandango->persist($article);
 
-    $articles = \Model\Article::getRepository()->createQuery(array('type' => 'slow'))->all();
+    $articles = $articleRepository->createQuery(array('type' => 'foo'))->all();
     $mandango->remove($articles);
 
     // send all database operations at once

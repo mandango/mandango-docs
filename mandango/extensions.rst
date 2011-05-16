@@ -18,7 +18,7 @@ Adding the extension to mondator::
 
 Using the extension::
 
-    $article = new \Model\Article();
+    $article = $mandango->create('Model\Article');
     $article['title'] = 'Mandango rocks!';
 
     echo $article['title']; // Mandango rocks!
@@ -35,7 +35,7 @@ Adding the extension to mondator::
 
 Using the extension::
 
-    $article = new \Model\Article();
+    $article = $mandango->create('Model\Article');
     $article->title = 'Mandango rocks!';
 
     echo $article->title; // Mandango rocks!

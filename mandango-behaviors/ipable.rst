@@ -35,7 +35,7 @@ Usage
 
 ::
 
-    $article = \Model\Article::create()->setTitle('Mandango')->save();
+    $article = $mandango->create('Model\Article')->setTitle('Mandango')->save();
 
     echo $article->getCreatedFrom(); // 127.0.0.1
     echo $article->getUpdatedFrom(); // null

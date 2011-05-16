@@ -31,13 +31,13 @@ query and it queries only those fields::
 
     // first time
     // fields: array('_id' => 1)
-    $user = \Model\User::getRepository()->createQuery()->one();
+    $user = $userRepository->createQuery()->one();
     $user->getUsername() // query the username, and it saves the salt is queried
     $user->getSalt() // query the salt, and it saves the salt is queried
 
     // second time
     // fields: array('_id' => 1, 'username' => 1, 'salt' => 1)
-    $user = \Model\User::getRepository()->createQuery()->one();
+    $user = $userRepository->createQuery()->one();
 
 This way it does ever query the full user, so the speed is incredible.
 
@@ -64,7 +64,7 @@ memory) and for you database and network::
         ),
     );
 
-    $articles = \Model\Article::getRepository()->createQuery()->all();
+    $articles = $articleRepository->createQuery()->all();
     // array('_id' => 1, 'title' => 1, 'summary' => 1)
     // without the content and image big fields, you are not using them!
 
@@ -94,7 +94,7 @@ This works also with embeddeds one::
         ),
     );
 
-    $article = \Model\Article::getRepository()->createQuery()->one();
+    $article = $articleRepository->createQuery()->one();
     // array('_id' => 1, 'source.name' => 1)
 
     $article->getSource()->getName();
@@ -104,7 +104,7 @@ Taking data from references
 
 A normal use case is to take data from references::
 
-    $article = \Model\Article::getRepository()->createQuery()->one();
+    $article = $articleRepository->createQuery()->one();
     // array('_id' => 1)
 
     $article->getAuthor()->getName();
@@ -117,7 +117,7 @@ References
 The Query Cache works also with the Mandango's references query, which is great.
 This is done automatically when you access to a reference::
 
-    $articles = \Model\Article::getRepository()->createQuery()/*->references('author)*/->all();
+    $articles = $articleRepository->createQuery()/*->references('author)*/->all();
     foreach ($articles as $article) {
         $article->getAuthor(); // queried!
     }

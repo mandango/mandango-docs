@@ -1,14 +1,10 @@
 Working with documents
 ======================
 
-The mandango documents are simply PHP objects::
+You have to create the documents through the ``create`` method of the mandango,
+passing it the document class::
 
-    $article = new \Model\Article();
-
-    // importing the class
-    use Model\Article;
-
-    $article = new Article();
+    $article = $mandango->create('Model\Article');
 
 Mandango uses setters and getters to modify and access to the document's data.
 
@@ -48,7 +44,7 @@ One
 To assign references to one you simply have to assign the referenced document
 to the reference's setter::
 
-    $author = new \Model\Author();
+    $author = $mandango->create('Mandango\Author');
     $author->setName('pablodip');
 
     $article->setAuthor($author);
@@ -194,20 +190,20 @@ Fluent interface
 A fluent interface is implemented in the mandango documents to be able to work
 easily with them::
 
-    $author = new \Model\Author();
+    $author = $mandango->create('Model\Author');
     $author->setName('pablodip');
     $author->save();
 
-    $article = new \Model\Article();
+    $article = $mandango->create('Model\Article');
     $article->setAuthor($author);
     $article->setTitle($title);
     $article->setContent($content);
     $article->save();
 
     // fluent interface
-    $author = \Model\Author::create()->setName('pablodip')->save();
+    $author = $mandango->create('Model\Author')->setName('pablodip')->save();
 
-    $article = \Model\Article::create()
+    $article = $mandango->create('Model\Article')
         ->setAuthor($author)
         ->setTitle($title)
         ->setContent($content)

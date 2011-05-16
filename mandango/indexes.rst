@@ -58,8 +58,8 @@ Synchronizing
 
 ::
 
-    \Model\Article::getRepository()->ensureIndexes();
-    \Model\Author::getRepository()->ensureIndexes();
+    $articleRepository->ensureIndexes();
+    $authorRepository->ensureIndexes();
 
 All at once through the mandango::
 

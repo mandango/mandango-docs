@@ -34,14 +34,14 @@ Usage
 
 ::
 
-    $article = \Model\Article::create()
+    $article = $mandango->create('Model\Article')
         ->setTitle('Mandango is ultrafast!')
         ->save()
     ;
 
     echo $article->getSlug(); // mandango-is-ultrafast
 
-    $article2 = \Model\Article::create()
+    $article2 = $mandango->create('Model\Article')
         ->setTitle('Mandango is ultrafast!')
         ->save()
     ;
