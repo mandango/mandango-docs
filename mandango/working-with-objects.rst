@@ -8,6 +8,22 @@ passing it the document class::
 
 Mandango uses setters and getters to modify and access to the document's data.
 
+Initializing
+------------
+
+To initialize the documents you have to create the ``initialize`` method, where you
+can choose the arguments, and pass them as an array creating the documents::
+
+    // the initialize method
+    public function initialize(Author $author)
+    {
+        $this->setAuthor($author);
+    }
+
+    // creating the document
+    $author = $mandango->create('Model\Author');
+    $article = $mandango->create('Model\Article', array($author));
+
 Identifier
 ----------
 
