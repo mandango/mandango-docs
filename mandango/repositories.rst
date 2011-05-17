@@ -67,6 +67,61 @@ The same logic that with the save method is applied here::
   It is also very useful **to delete a lot of documents** from the repository, because
   it uses the ``$in`` operator.
 
+Group
+-----
+
+The repositories have the ``group`` method, which is a shortcut to the ``group``
+method of the repositories::
+
+    $result = $repository->group($keys, $initial, $reduce);
+    $result = $repository->group($keys, $initial, $reduce, $options); // options optional
+
+    // the same as
+    $result = $repository
+        ->getCollection()
+        ->group($keys, $initial, $reduce, $options)
+    ;
+
+Distinct
+--------
+
+The repositories have the ``distinct`` method to execute distinct commands easily::
+
+    $result = $repository->distinct($field);
+    $result = $repository->distinct($field, $query); // query optional
+
+    // the same as
+    $result = $repository
+        ->getCollection()
+        ->getMongoDB()
+        ->command(array(
+            'distinct' => $repository->getCollectionName(),
+            'key'      => $field,
+            'query'    => $query,
+        ))
+    ;
+
+Map Reduce
+----------
+
+The repositories have the ``mapReduce`` method to execute map reduces commands easily::
+
+    $result = $repository->mapReduce($map, $reduce, $out);
+    $result = $repository->mapReduce($map, $reduce, $out, $query, $options); // more args (optionals)
+
+    // the same as
+    $result = $repository
+        ->getCollection()
+        ->getMongoDB()
+        ->command(array_merge($options, array(
+            'mapreduce' => $repository->getCollectionName(),
+            'map'       => $map,
+            'reduce'    => $reduce,
+            'out'       => $out,
+            'query'     => $query,
+        )))
+    ;
+
 Connection
 ----------
 
