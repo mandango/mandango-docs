@@ -78,7 +78,7 @@ From your computer
 ^^^^^^^^^^^^^^^^^^
 
 Mandango requires PHP 5.3.0 or greater, and of course MongoDB and the PHP
-driver for MongoDB.
+driver for MongoDB (1.0.11 or greater).
 
 From you
 ^^^^^^^^
