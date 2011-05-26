@@ -25,6 +25,7 @@ Let's see how it works::
         ->skip(25)
         ->batchSize(3)
         ->hint(array('date' => 1))
+        ->slaveOkay(true)
         ->snapshot(true)
         ->timeout(100)
 
