@@ -9,7 +9,7 @@ your Mandango's documents with the Symfony2 security layer.
     services:
         security.provider.mandango:
             class: Mandango\MandangoBundle\Security\MandangoUserProvider
-            arguments: [Model\User, username]
+            arguments: [@mandango, Model\User, username]
 
     security:
         providers:
