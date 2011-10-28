@@ -59,9 +59,9 @@ The extensions also accept options to be able to customize its operation::
 
     $mondator->setExtensions(array(
         new Mandango\Extension\Core(array(
-            'metadata_class' => 'Model\Mapping\Metadata',
-            'metadata_output' => $modelDir.'/Mapping',
-            'default_output' => $modelDir,
+            'metadata_factory_class'  => 'Model\Mapping\Metadata',
+            'metadata_factory_output' => $modelDir.'/Mapping',
+            'default_output'          => $modelDir,
         )),
     ));
 
