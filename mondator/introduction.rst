@@ -35,7 +35,7 @@ Classes loader
 
 To use Mondator you just have to add it namespace to a class loader::
 
-    use Symfony\Comopnent\HttpFoundation\UniversalClassLoader;
+    use Symfony\Component\HttpFoundation\UniversalClassLoader;
 
     $loader = new UniversalClassLoader();
     $loader->registerNamespaces(array(
